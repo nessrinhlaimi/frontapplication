@@ -1,0 +1,112 @@
+<div class="animated fadeIn">
+</div><!--/.col-->
+  
+  
+<div class="row">
+<div class="col-md-10 mx-auto">
+    <div class="card">
+      <div class="card-header">
+        <strong>Fiche d'intervention</strong>
+      </div>
+      <div class="card-body">
+        <div [hidden]="submitted"></div>
+        <form class="form-horizontal"  (ngSubmit)="onSubmit()" >
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label" for="date-input">Date </label>
+                <div class="col-md-9">
+                  <input class="form-control" id="date-input" type="date" name="date-input" placeholder="date" [(ngModel)]="intervention.date">
+             
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 col-form-label">Intervention matriels/logicils</label>
+                <div class="col-md-9 col-form-label">
+                  <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" type="checkbox" id="inline-checkbox1" value="option1" (click) = "choisirLogiciel($event, 'Switch')">
+                    <label class="form-check-label" for="inline-checkbox1">Switch</label>
+                  </div>
+                  <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" type="checkbox" id="inline-checkbox2" value="option2" (click) = "choisirLogiciel($event, 'Refonte réseau')">
+                    <label class="form-check-label" for="inline-checkbox2">Refonte réseau</label>
+                  </div>
+                  <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" type="checkbox" id="inline-checkbox3" value="option3" (click) = "choisirLogiciel($event, 'Java')">
+                    <label class="form-check-label" for="inline-checkbox3">Java</label>
+                  </div>
+                </div>
+              </div>
+    
+    
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="type">Structure</label>
+            <div class="col-md-9">
+              <select id="structure" name="Structure" class="form-control"
+              required [(ngModel)]="intervention.structure"   >
+
+                <option value=" Direction Régionale Sahel"> Direction Régionale Sahel</option>
+                <option value="Agence Sousse"> Agence Sousse</option>
+
+              </select>
+            </div>
+          </div>
+         
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="type">lieu</label>
+            <div class="col-md-9">
+              <select name="version" class="form-control" 
+              required [(ngModel)]="intervention.lieu">
+                <option value="sousse"> Sousse</option>
+                <option value="Gafsa">Gafsa</option>
+                <option value="nabeul">Nabeul</option>
+                <option value="Ariana">Ariana</option>
+              </select>
+            </div>
+          </div>
+
+          
+
+
+          <div class="form-group row">
+         
+            <label class="col-md-3 col-form-label" for="textarea-input">Observations</label>
+            <div class="col-md-9">
+              <textarea id="observation" name="observation" rows="9"   maxlength="500" class="form-control" placeholder="Content.."
+             
+               [(ngModel)]="intervention.observation"      ></textarea>
+            </div>
+          </div>
+              
+         
+
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Enregistrer intervention
+          </button>
+          <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        
+        </form>
+        
+  
+      
+      </div>
+    </div>
+
+    <div class="card-footer">
+
+    </div>
+  </div>
+  </div>
+     
+    
+    <!--/.row-->
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Ajouter intervention</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="decline()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>votre intervention a été enregistré avec succée</p>
+        <button type="button" class="btn btn-primary" (click)="decline()">Close</button>
+      </div>
+    </ng-template>
+  

@@ -1,0 +1,53 @@
+<div class="row">
+<div class="col-md-10 mx-auto">
+
+<h2 class="text-center">EditIntervention</h2>
+
+<form   [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+
+<div class="form-group">
+  <label for="date">Date : </label>
+  <input type="date" formControlName="date" placeholder="date" name="date"  class="form-control"  id="date">
+</div>
+<div class="form-group row">
+  <label class="col-md-3 col-form-label">Intervention matriels/logicils</label>
+  <div class="col-md-9 col-form-label">
+    <div class="form-check form-check-inline mr-1">
+      <input class="form-check-input" type="checkbox"  id="inline-checkbox1" value="option1" (click) = "choisirLogiciel($event, 'Switch')">
+      <label  class="form-check-label" for="inline-checkbox1">Switch</label>
+    </div>
+    <div class="form-check form-check-inline mr-1">
+      <input   class="form-check-input" type="checkbox" id="inline-checkbox2"   value="option2" (click) = "choisirLogiciel($event, 'Refonte réseau')">
+      <label  class="form-check-label" for="inline-checkbox2">Refonte réseau</label>
+    </div>
+    <div class="form-check form-check-inline mr-1">
+      <input class="form-check-input" type="checkbox" id="inline-checkbox3"    value="option3" (click) = "choisirLogiciel($event, 'Java')">
+      <label class="form-check-label" for="inline-checkbox3">Java</label>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label for="structure">Structure : </label>
+  <select formControlName="structure" placeholder="structure" name="structure" class="form-control" id="structure">
+    <option value=" Direction Régionale Sahel"> Direction Régionale Sahel</option>
+    <option value="Agence Sousse"> Agence Sousse</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="lieu">lieu : </label>
+  <select formControlName="lieu" placeholder="lieu" name="lieu" class="form-control" id="lieu">
+    <option value="sousse"> Sousse</option>
+    <option value="Gafsa">Gafsa</option>
+    <option value="nabeul">Nabeul</option>
+    <option value="Ariana">Ariana</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="observation">Observation : </label>
+  <textarea type="text" formControlName="observation" placeholder="observation" class="form-control" name="observation" id="observation"></textarea>
+</div>
+
+  <button class="btn btn-success">Edit</button>
+</form>
+</div>
+</div>

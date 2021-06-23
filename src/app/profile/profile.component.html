@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+  
+      <mat-card *ngIf="user">
+        <ng-container  *ngIf="user.id===userConnected.id">
+          <button mat-stroked-button [routerLink]="['/profile-edit',userConnected.id]" >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </ng-container>
+       <img src="assets/img/avatars/ff.jpg" class="img-profile mat-elevation-z2">
+        <ul class="list-group" style=" width: 20%; margin: 0 auto; height: 20px; ">
+          </ul>
+        <div class="text-center">
+          <button mat-raised-button>Intervention
+            <span class="badge badge-primary badge-pill">
+              <ng-container *ngIf="allintervention;else count_number">
+                {{allintervention.length}}
+              </ng-container>
+              <ng-template #count_number>
+                    0
+              </ng-template>
+          </span>
+          </button>
+         
+        </div>
+      </mat-card>
+  
+    </div>
+  
+    <div class="col-sm-5 col-md-5">
+    </div>
+    <div class="col-sm-3 col-md-3">
+      <ul class="list-group" *ngIf="user">
+  
+  
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <mat-icon>account_circle</mat-icon>
+  
+          {{user.name}}
+          {{user.lastname}}
+        </li>
+       
+     
+      </ul>
+    </div>
+  
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+  
+      <mat-card *ngIf="allintervention">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col"> Num de fiche d'intervention </th>
+            <th scope="col">Date</th>
+            <th scope="col">lieu</th>
+            <th scope="col">Structure</th>
+            <th scope="col">Details</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let intervention of allintervention ">
+            
+            
+  
+            <td>
+              {{intervention?.id}}
+            </td>
+            <td>
+              {{intervention?.date}}
+
+            </td>
+            <td>
+              {{intervention?.lieu}}
+
+            </td>
+            <td>
+              {{intervention?.structure}}
+
+            </td>
+            
+           
+          </tr>
+          </tbody>
+        </table>
+      </mat-card>
+  
+    </div>
+  </div>
+  
